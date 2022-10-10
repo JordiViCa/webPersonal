@@ -1,0 +1,10 @@
+<main>
+    <div class="h-[90vh] bg-gradient-to-b from-slate-100 to-slate-300 w-full flex text-center">
+        <h1 class="px-4 text-6xl lg:text-8xl font-thin mx-auto my-auto">{{textShowTitle}}</h1>
+    </div>
+    <app-header class="sticky top-0 w-full" [items]="structure"></app-header>
+    <app-who-am-i [item]="structure[0]"></app-who-am-i>
+    <app-roadmap [item]="structure[1]"></app-roadmap>
+    <app-contact [item]="structure[2]"></app-contact>
+    <app-footer></app-footer>
+</main>
