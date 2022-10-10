@@ -1,0 +1,14 @@
+<div class="bg-slate-300 flex justify-around h-[10vh]">
+    <div *ngFor="let el of items" class="hover:bg-slate-400 transition-all flex px-8">
+        <a href="#{{el.value}}" class="text-2xl my-auto">{{el.name}}</a>
+    </div>
+    <div class="flex">
+        <select [(ngModel)]="langSelected" class="my-auto border-0 bg-slate-300 text-2xl" (change)="selectLang(langSelected)" name="" id="">
+            <option value="en" [defaultSelected]="langSelected=='en'">EN</option>
+            <option value="es" [defaultSelected]="langSelected=='es'">ES</option>
+            <option value="ca" [defaultSelected]="langSelected=='ca'">CA</option>
+            <option value="fr" [defaultSelected]="langSelected=='fr'">FR</option>
+            <option value="pt" [defaultSelected]="langSelected=='pt'">PT</option>
+        </select>
+    </div>
+</div>
