@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-landing',
@@ -7,23 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
+  @ViewChild('myname') el: any; 
+  
   constructor() { }
 
   structure = [{name: 'Who am I', value: 'who_am_i'}, {name: 'Roadmap', value: 'roadmap'}, {name: 'Contact', value: 'contact'}];
-  textToAnimate = "Hello, and welcome to my page.";
-  textShowTitle = "";
-  i = 0;
+  langSelected: string = "";
   ngOnInit(): void {
-    this.typeWriter()
   }
-  typeWriter() {
-    if (this.i < this.textToAnimate.length) {
-      this.textShowTitle += this.textToAnimate[this.i];
-      this.i++;
-      setTimeout(()=> {
-        this.typeWriter()
-      }, 50);
-    }
+  ngAfterViewInit() {
+    console.log(this.el);
+  }
+  setLang(value: string) {
+    this.langSelected = value;
   }
 
 }
