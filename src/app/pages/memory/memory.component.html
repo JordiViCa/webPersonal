@@ -1,1 +1,40 @@
-<app-tauler></app-tauler>
+<div class="flex justify-evenly h-screen">
+    <div class="w-1/4 h-auto bg-slate-200 rounded-md p-10 my-10">
+        <h1 class="text-6xl font-thin">Memory</h1>
+        <div class="bg-slate-100 rounded-md p-10 mt-5">
+            <h1 class="text-2xl font-bold">Estadistiques</h1>
+            <p>Precisio: {{ percentatge }}%</p>
+            <p>Moviments: {{clicks}}</p>
+        </div>
+        <div class="bg-slate-100 rounded-md p-10 mt-5">
+            <h1 class="text-2xl font-bold">Temps restant</h1>
+            <p>{{ temps }} segons</p>
+        </div>
+        <div class="flex mt-20">
+            <button (click)="generateMatrix()" class="px-4 py-2 bg-slate-100 rounded-xl border border-black hover:text-slate-200 hover:bg-slate-600 transition-all mx-auto" style="transition-duration: 300ms;">Reiniciar</button>
+        </div>
+    </div>
+    <app-tauler (victoria)="victory()" (sendClick)="click($event)" [matrix]="matrix" [loaded]="loaded" class="my-auto"></app-tauler>
+</div>
+<div *ngIf="showVictory || showLose" class="flex justify-evenly h-screen w-screen absolute top-0 left-0 bg-[#5c5c5c69] z-10">
+    <div *ngIf="showVictory" class="mx-auto my-auto p-20 bg-slate-200 rounded-md">
+        <h1 class="text-6xl font-thin">VICTORIA</h1>
+        <p>Temps restant: {{ temps }} segons</p>
+        <p>Precisio: {{ percentatge }}%</p>
+        <p>Moviments: {{clicks}}</p>
+        <div class="flex justify-around mt-10">
+            <button (click)="showVictory = false" class="px-4 py-2 rounded-md bg-red-500 font-bold border border-black hover:bg-red-400 transition-all">Tencar</button>
+            <button (click)="generateMatrix()" class="px-4 py-2 rounded-md bg-green-500 font-bold border border-black hover:bg-green-400 transition-all">Tornar a jugar</button>
+        </div>
+    </div>
+    <div *ngIf="showLose" class="mx-auto my-auto p-20 bg-slate-200 rounded-md">
+        <h1 class="text-6xl font-thin">HAS PERDUT</h1>
+        <p>Temps restant: {{ temps }} segons</p>
+        <p>Precisio: {{ percentatge }}%</p>
+        <p>Moviments: {{clicks}}</p>
+        <div class="flex justify-around mt-10">
+            <button (click)="showLose = false" class="px-4 py-2 rounded-md bg-red-500 font-bold border border-black hover:bg-red-400 transition-all">Tencar</button>
+            <button (click)="generateMatrix()" class="px-4 py-2 rounded-md bg-green-500 font-bold border border-black hover:bg-green-400 transition-all">Tornar a jugar</button>
+        </div>
+    </div>
+</div>
