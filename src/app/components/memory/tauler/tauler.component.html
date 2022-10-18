@@ -1,1 +1,7 @@
-<app-casella></app-casella>
+<div class="flex flex-col mx-auto bg-slate-200 rounded-lg p-5">
+    <table class="tableMemory">
+        <tr *ngFor="let i of y" class="flex">
+            <app-casella (click)="clicked(i,j)" [loaded]="loaded" [item]="matrix[i][j]" *ngFor="let j of x"></app-casella>
+        </tr>
+    </table>
+</div>
