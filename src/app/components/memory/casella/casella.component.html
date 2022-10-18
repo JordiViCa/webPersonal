@@ -1,1 +1,6 @@
-<p>casella works!</p>
+<div class="flip-card w-32 h-32 m-1">
+    <div class="flip-card-inner {{item.visible && loaded ? 'flip':''}}">
+        <img src="{{item.image}}" class="w-32 h-32 flip-card-back" alt="Test">
+        <div class="w-32 h-32 bg-slate-400 flip-card-front" id="blank">&nbsp;</div>
+    </div>
+</div>
